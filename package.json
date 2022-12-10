@@ -1,8 +1,10 @@
 {
   "dependencies": {
     "ejs": "^3.1.8",
-    "express": "^4.18.2"
-  },"scripts": {
+    "express": "^4.18.2",
+    "openai": "^3.1.0"
+  },
+  "scripts": {
     "start": "node ./web.js"
-}
+  }
 }
