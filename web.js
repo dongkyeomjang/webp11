@@ -19,26 +19,28 @@ app.get("/test", (req, res) => {
 });
 
 app.get("/image", async (req, res) => {
-  const prompt = req.query.text ?? "happy cute cat";
+  try {
+    const prompt = req.query.text ?? "happy cute cat";
 
-  const configuration = new Configuration({
-    organization: "org-LElCgMp9DJlsFu381rOF0wBB",
-    apiKey: "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",
-  });
+    const configuration = new Configuration({
+      organization: "org-LElCgMp9DJlsFu381rOF0wBB",
+      apiKey: "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",
+    });
 
-  const openai = new OpenAIApi(configuration);
+    const openai = new OpenAIApi(configuration);
 
-  const openAiResponse = await openai.createImage({
-    prompt,
-    n: 1,
-    size: "1024x1024",
-  });
+    const openAiResponse = await openai.createImage({
+      prompt,
+      n: 1,
+      size: "1024x1024",
+    });
 
-  const url = openAiResponse.data.data[0].url ?? DEFAULT_IMAGE;
+    const url = openAiResponse.data.data[0].url ?? DEFAULT_IMAGE;
 
-  res.send(url);
-
-  res.render("image", { url });
+    res.render("image", { url });
+  } catch (err) {
+    res.send(err);
+  }
 });
 
 app.listen(PORT, () => {
