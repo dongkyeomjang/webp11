@@ -1,5 +1,6 @@
 const express = require("express");
 const { Configuration, OpenAIApi } = require("openai");
+const cors = require("cors");
 
 const app = express();
 const PORT = 8001;
@@ -9,6 +10,8 @@ const key2 = "T3BlbkFJ87h7SDvxHm141REM3yBI";
 
 const DEFAULT_IMAGE =
   "https://i.pinimg.com/236x/cb/24/f1/cb24f1478772b27702ff45e5490b6b6f.jpg";
+
+app.use(cors());
 
 app.set("views", __dirname + "/views");
 app.set("view engine", "ejs");
