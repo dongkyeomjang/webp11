@@ -43,9 +43,9 @@ app.get("/image", async (req, res) => {
 
     const url = openAiResponse.data.data[0].url ?? DEFAULT_IMAGE;
 
-    res.send(url);
+    res.json(url);
   } catch (err) {
-    res.send(err);
+    res.json(err);
   }
 });
 
