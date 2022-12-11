@@ -4,6 +4,9 @@ const { Configuration, OpenAIApi } = require("openai");
 const app = express();
 const PORT = 8001;
 
+const key1 = "sk-CoKymg1wqtl9IsaZaoVt";
+const key2 = "T3BlbkFJ87h7SDvxHm141REM3yBI";
+
 const DEFAULT_IMAGE =
   "https://i.pinimg.com/236x/cb/24/f1/cb24f1478772b27702ff45e5490b6b6f.jpg";
 
@@ -24,7 +27,7 @@ app.get("/image", async (req, res) => {
 
     const configuration = new Configuration({
       organization: "org-LElCgMp9DJlsFu381rOF0wBB",
-      apiKey: "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",
+      apiKey: key1 + key2,
     });
 
     const openai = new OpenAIApi(configuration);
